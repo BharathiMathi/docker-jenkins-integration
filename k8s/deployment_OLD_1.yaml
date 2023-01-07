@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-k8s
+spec:
+  selector:
+    matchLabels:
+      app: react-k8s
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: react-k8s
+    spec:
+      containers:
+        - name: react-k8s
+          image: bhmat89/react-k8s
+          ports:
+            - containerPort: 3000

@@ -1,8 +1,6 @@
-FROM node:latest as node
+From node:alpine
 WORKDIR /app
-COPY package.json ./
-COPY package-lock.json ./
-COPY ./ ./
-RUN npm i
-EXPOSE 3000
-CMD ["npm", "run", "start"]
+COPY package.json .
+RUN npm install
+COPY . .
+CMD ["npm","start"]
